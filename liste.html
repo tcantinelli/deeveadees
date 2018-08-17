@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Deeveadees</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <link href="style2.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+        <a class="navbar-brand" href="index.html">Deeveadees</a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="liste.html">Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="backoffice.html">Add</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <br>
+        <div class="row">
+            <!-- Colonne gauche: Infos du film -->
+            <div class="col">
+
+                <form id="ajoutFilm" name="ajoutFilm" action="">
+                    <!-- ID du film DISABLEB -->
+                    <div class="form-row">
+                        <div class="form-group col-3">
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">ID</div>
+                                </div>
+                                <input type="text" class="form-control" id="index" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Titre du film -->
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Titre</div>
+                                </div>
+                                <input type="text" class="form-control" id="titre">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Annee + genre-->
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Genre</div>
+                                </div>
+                                <input type="text" class="form-control" id="genre">
+                            </div>
+                        </div>
+                        <div class="form-group col-6">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Année</div>
+                                </div>
+                                <input type="text" class="form-control" id="annee">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Synopsis -->
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Synopsis</div>
+                                </div>
+                                <textarea class="form-control" id="synopsis" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Realisateur -->
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Réalisateur</div>
+                                </div>
+                                <input type="text" class="form-control" id="realisateur">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Acteurs -->
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Acteurs</div>
+                                </div>
+                                <input type="text" class="form-control" id="acteurs">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Image -->
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Affiche</div>
+                                </div>
+                                <input type="text" class="form-control" id="affiche">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Trailer -->
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Bande annonce</div>
+                                </div>
+                                <input type="text" class="form-control" id="trailer">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control hidden" id="filmID" value="">
+                    <!-- Sauvegarde des modifs dans BDD, le onclick est ajoute par JS -->
+                    <button id="saveButt" type="button" class="btn btn-primary" onclick="">Submit</button>
+
+                </form>
+
+            </div>
+            <!-- Colonne droite: Liste des films -->
+            <div class="col">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Titre</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <!-- Lignes completees par JS -->
+                    <tbody id="ligne">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./scriptListe.js"></script>
+</body>
+
+</html>

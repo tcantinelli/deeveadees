@@ -1,0 +1,92 @@
+body{
+    background-color:whitesmoke;
+}
+
+/*Directives CSS pour les ecrans intelligents*/
+@media all and (min-width: 500px ){
+    .connexion{
+        width:500px;
+        height: 280px;
+        margin:auto;
+        margin-top: 155px;
+    }
+    .area{
+        width:80%;
+        margin-left: 10%;
+        margin-top: 8%;
+    }
+    input[type=button].login{
+        width:80%;
+        margin-left: 10%;
+        margin-top: 10%;
+        height: 35px;
+        line-height: 35px;
+        vertical-align: middle;
+    }
+}
+/*Pour les resolutions superieures a 900px le comportement est le suivant*/
+@media all and (min-width: 900px ){
+    .connexion{
+        width:700px;
+        height: 380px;
+        margin:auto;
+        margin-top: 150px;
+    }
+    .area{
+        width:40%;
+        margin-left: 5%;
+        margin-top: 15%;
+        text-align: center;
+    }
+    input[type=button].login{
+        width:30%;
+        margin-left: 35%;
+        margin-top: 15%;
+        text-align: center;
+    }
+}
+
+/*Les differents tag auxquels on applique le theme "glass" */
+div.glass{
+    position:relative;
+    background-color:gray;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+/*Comportement du theme "glass" spécialisé inputs*/
+input.glass{
+    height: 2em;
+    line-height: 2em;
+    vertical-align: bottom;
+    background-color: whitesmoke;
+    border-width: 1px;
+    border-radius: 5px;
+    color : black;
+}
+
+/*Le bouton c'est encore different*/
+input[type=button].glass{
+    border: 2px solid rgb(39, 124, 18);
+    color : rgb(0, 0, 0);
+}
+input[type=button].glass:hover{
+    cursor: pointer;
+}
+
+/* Les deux petits liens en bas*/
+a.glass{
+    position:absolute;
+    bottom: 1%;
+    
+    color: whitesmoke;
+    transition: color 0.5s;
+}
+a.right{
+    right:2%;
+}
+a.left{
+    left:2%;
+}
+a.glass:hover{    
+    color: rgba(255,255,255,0.4);
+}
